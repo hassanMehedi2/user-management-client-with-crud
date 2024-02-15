@@ -23,7 +23,7 @@ const Home = () => {
 
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/user/${_id}`, {
+                fetch(`https://user-management-server-with-crud.vercel.app/user/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

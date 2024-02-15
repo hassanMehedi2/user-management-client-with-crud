@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home></Home>,
-        loader: ()=>fetch('http://localhost:5000/user')
+        loader: ()=>fetch('https://user-management-server-with-crud.vercel.app/user')
       },
       {
         path: "/addUser",
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateUser></UpdateUser>,
-        loader: ({params}) => fetch(`http://localhost:5000/user/${params.id}`)
+        loader: ({params}) => fetch(`https://user-management-server-with-crud.vercel.app/user/${params.id}`)
       }
     ]
   },
