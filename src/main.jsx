@@ -8,12 +8,18 @@ import {
 } from "react-router-dom";
 import AddUser from './components/AddUser.jsx';
 import UpdateUser from './components/UpdateUser.jsx';
+import Home from './components/Home.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     children : [
+      {
+        path:"/",
+        element: <Home></Home>,
+        loader: ()=>fetch('http://localhost:5000/user')
+      },
       {
         path: "/addUser",
         element: <AddUser></AddUser>,
