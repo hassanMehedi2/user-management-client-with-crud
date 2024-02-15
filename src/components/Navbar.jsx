@@ -5,11 +5,10 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to={'/'}>All User</NavLink></li>
         <li><NavLink to={'/addUser'}>Add User</NavLink></li>
-        <li><NavLink to={'/updateUser'}>Update User</NavLink></li>
     </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 px-10 mt-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -27,7 +26,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <a className="btn">Login</a>
                 </div>
             </div>
         </div>

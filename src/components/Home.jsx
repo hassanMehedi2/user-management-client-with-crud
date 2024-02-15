@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -49,7 +50,7 @@ const Home = () => {
         <div>
             <h2 className='text-4xl font-bold text-purple-900 text-center mt-10 mb-10'>All Users</h2>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto bg-[#F4F3F0] m-10 p-10">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -71,7 +72,7 @@ const Home = () => {
                                 <td>{user.age}</td>
                                 <td>{user.status}</td>
                                 <td>
-                                    <Link><button className='bg-blue-600 text-white p-2 rounded-lg mr-2'>Update</button></Link>
+                                    <Link to={`/update/${user._id}`}><button className='bg-blue-600 text-white p-2 rounded-lg mr-4'>Update</button></Link>
                                     <button onClick={() => handleDelete(user._id)} className='bg-red-600 text-white p-2 px-3 rounded-lg'>Delete</button>
 
                                 </td>
