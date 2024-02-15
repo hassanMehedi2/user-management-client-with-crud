@@ -1,11 +1,48 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Home = () => {
     const loadedUser = useLoaderData();
     const [users, setUsers] = useState(loadedUser);
     let count = 0;
 
+    const handleDelete = _id => {
+
+        // confirming if wants to delete or not
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/user/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            // update the list after deleteing
+                            const remaining = users.filter(user => user._id !== _id);
+                            setUsers(remaining);
+                            // sweet alart 
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "User has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+
+    }
 
 
     return (
